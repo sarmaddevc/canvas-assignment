@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas</title>
+    <style>
+      body {
+        background-image: url(images/2296761.jpg);
+      }
+      canvas {
+        background-color: white;
+      }
+      .h1-1 {
+        width: 100%;
+        font-size: 50px;
+        text-align: center;
+        background-color: lightseagreen;
+        color: chartreuse;
+      }
+      #header-button {
+        color: black;
+        background-color: blue;
+        border: 1px solid white;
+        border-radius: 30px;
+        padding: 10px;
+      }
+      #header {
+        border: 1px solid white;
+        border-radius: 30px;
+        padding: 10px;
+      }
+
+      #caption-button {
+        color: black;
+        background-color: blue;
+        border: 1px solid white;
+        border-radius: 30px;
+        padding: 10px;
+      }
+      #caption {
+        border: 1px solid white;
+        border-radius: 30px;
+        padding: 10px;
+      }
+      #footer-button {
+        color: black;
+        background-color: blue;
+        border: 1px solid white;
+        border-radius: 30px;
+        padding: 10px;
+      }
+      #file {
+        color: black;
+        background-color: blue;
+        border: 1px solid white;
+        border-radius: 30px;
+        padding: 10px;
+      }
+      #footer {
+        border: 1px solid white;
+        border-radius: 30px;
+        padding: 10px;
+      }
+      #downloadbutton {
+        color: black;
+        background-color: blue;
+        border: 1px solid white;
+        border-radius: 30px;
+        padding: 10px;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="h1-1">Insert The Image In Canvas</h1>
+    <canvas
+      id="canvas"
+      style="border: 1px solid black; width: fit-content; height: 50vh"
+    >
+    </canvas>
+    <div><input type="file" name="File" id="file" /></div>
+
+    <div class="col-12" style="height: 50%">
+      <div class="Header">
+        <h1>Enter header</h1>
+        <input
+          type="text"
+          name="header"
+          id="header"
+          placeholder="Enter Header"
+        />
+        <input
+          type="button"
+          id="header-button"
+          value="Add header"
+          onclick="addheader();"
+        />
+      </div>
+      <div class="Text-Type">
+        <h1>Enter The Text</h1>
+        <input
+          type="text"
+          name="caption"
+          id="caption"
+          placeholder="Enter The Text"
+        />
+        <input
+          type="button"
+          id="caption-button"
+          value="Add Text"
+          onclick="addtext();"
+        />
+      </div>
+    </div>
+    <div class="Footer" style="padding-bottom: 30px">
+      <h1>Enter Footer</h1>
+      <input type="text" name="footer" id="footer" placeholder="Enter Footer" />
+      <input
+        type="button"
+        id="footer-button"
+        value="Add Footer"
+        onclick="addfooter();"
+      />
+    </div>
+
+    <div>
+      <input
+        type="button"
+        name="download"
+        id="downloadbutton"
+        onclick="download();"
+        value="Download"
+      />
+    </div>
+
+    <script>
+      let fileInput = document.getElementById("file");
+      fileInput.addEventListener("change", function (ev) {
+        if (ev.target.files) {
+          let file = ev.target.files[0];
+          var reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onloadend = function (e) {
+            var image = new Image();
+            image.src = e.target.result;
+            image.onload = function (ev) {
+              var canvas = document.getElementById("canvas");
+
+              var ctx = canvas.getContext("2d");
+              ctx.drawImage(image, 0, 20, canvas.width, 115);
+              console.log(canvas.width, canvas.height);
+            };
+          };
+        }
+      });
+      function addheader() {
+        var headerText = document.getElementById("header").value;
+        var c = document.getElementById("canvas");
+        var ctx = c.getContext("2d");
+        ctx.fillStyle = "black";
+        ctx.font = "bold 15px sans-serif";
+
+        ctx.fillText(headerText, 125, 15);
+      }
+      function addfooter() {
+        var footerText = document.getElementById("footer").value;
+        var c = document.getElementById("canvas");
+        var ctx = c.getContext("2d");
+        ctx.fillStyle = "black";
+        ctx.font = "bold 15px sans-serif";
+        ctx.fillText(footerText, 125, 148);
+      }
+      function addtext() {
+        var captionText = document.getElementById("caption").value;
+        var c = document.getElementById("canvas");
+
+        var ctx = c.getContext("2d");
+        ctx.fillStyle = "black";
+        ctx.font = "bold 18px sans-serif";
+        ctx.fillText(captionText, 125, 80);
+      }
+      function download() {
+        var canvas = document.getElementById("canvas");
+        var image = canvas.toDataURL();
+        var aDownloadLink = document.createElement("a");
+        aDownloadLink.download = "canvas_image.png";
+        aDownloadLink.href = image;
+        aDownloadLink.click();
+      }
+    </script>
+  </body>
+</html>
