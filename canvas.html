@@ -4,74 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Canvas</title>
-    <style>
-      body {
-        background-image: url(images/2296761.jpg);
-      }
-      canvas {
-        background-color: white;
-      }
-      .h1-1 {
-        width: 100%;
-        font-size: 50px;
-        text-align: center;
-        background-color: lightseagreen;
-        color: chartreuse;
-      }
-      #header-button {
-        color: black;
-        background-color: blue;
-        border: 1px solid white;
-        border-radius: 30px;
-        padding: 10px;
-      }
-      #header {
-        border: 1px solid white;
-        border-radius: 30px;
-        padding: 10px;
-      }
-
-      #caption-button {
-        color: black;
-        background-color: blue;
-        border: 1px solid white;
-        border-radius: 30px;
-        padding: 10px;
-      }
-      #caption {
-        border: 1px solid white;
-        border-radius: 30px;
-        padding: 10px;
-      }
-      #footer-button {
-        color: black;
-        background-color: blue;
-        border: 1px solid white;
-        border-radius: 30px;
-        padding: 10px;
-      }
-      #file {
-        color: black;
-        background-color: blue;
-        border: 1px solid white;
-        border-radius: 30px;
-        padding: 10px;
-      }
-      #footer {
-        border: 1px solid white;
-        border-radius: 30px;
-        padding: 10px;
-      }
-      #downloadbutton {
-        color: black;
-        background-color: blue;
-        border: 1px solid white;
-        border-radius: 30px;
-        padding: 10px;
-        margin-top: 5px;
-      }
-    </style>
   </head>
   <body>
     <h1 class="h1-1">Insert The Image In Canvas</h1>
@@ -149,6 +83,12 @@
               var canvas = document.getElementById("canvas");
 
               var ctx = canvas.getContext("2d");
+              ctx.fillStyle = "#FFFFFF";
+              ctx.fillRect(0, 0, canvas.width, canvas.height);
+              ctx.beginPath();
+              ctx.strokeStyle = "black";
+              ctx.lineWidth = 2;
+              ctx.strokeRect(0, 20, canvas.width, 115);
               ctx.drawImage(image, 0, 20, canvas.width, 115);
               console.log(canvas.width, canvas.height);
             };
@@ -178,7 +118,7 @@
 
         var ctx = c.getContext("2d");
         ctx.fillStyle = "black";
-        ctx.font = "bold 18px sans-serif";
+        ctx.font = "bold 15px sans-serif";
         ctx.fillText(captionText, 125, 80);
       }
       function download() {

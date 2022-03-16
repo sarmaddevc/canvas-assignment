@@ -1,0 +1,65 @@
+body {
+  background-image: url(images/2296761.jpg);
+}
+canvas {
+  background-color: white;
+}
+.h1-1 {
+  width: 100%;
+  font-size: 50px;
+  text-align: center;
+  background-color: lightseagreen;
+  color: chartreuse;
+}
+#header-button {
+  color: black;
+  background-color: blue;
+  border: 1px solid white;
+  border-radius: 30px;
+  padding: 10px;
+}
+#header {
+  border: 1px solid white;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+#caption-button {
+  color: black;
+  background-color: blue;
+  border: 1px solid white;
+  border-radius: 30px;
+  padding: 10px;
+}
+#caption {
+  border: 1px solid white;
+  border-radius: 30px;
+  padding: 10px;
+}
+#footer-button {
+  color: black;
+  background-color: blue;
+  border: 1px solid white;
+  border-radius: 30px;
+  padding: 10px;
+}
+#file {
+  color: black;
+  background-color: blue;
+  border: 1px solid white;
+  border-radius: 30px;
+  padding: 10px;
+}
+#footer {
+  border: 1px solid white;
+  border-radius: 30px;
+  padding: 10px;
+}
+#downloadbutton {
+  color: black;
+  background-color: blue;
+  border: 1px solid white;
+  border-radius: 30px;
+  padding: 10px;
+  margin-top: 5px;
+}
