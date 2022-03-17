@@ -1,4 +1,4 @@
-function addheader() {
+function AddHeader() {
   var headerText = document.getElementById("header").value;
   var c = document.getElementById("canvas");
   var ctx = c.getContext("2d");
@@ -7,7 +7,7 @@ function addheader() {
   ctx.fillText(headerText, 125, 15);
 }
 
-function addtext() {
+function AddText() {
   var captionText = document.getElementById("caption").value;
   var c = document.getElementById("canvas");
   var ctx = c.getContext("2d");
@@ -16,7 +16,7 @@ function addtext() {
   ctx.fillText(captionText, 125, 80);
 }
 
-function addfooter() {
+function AddFooter() {
   var footerText = document.getElementById("footer").value;
   var c = document.getElementById("canvas");
   var ctx = c.getContext("2d");
@@ -24,11 +24,13 @@ function addfooter() {
   ctx.font = "bold 15px sans-serif";
   ctx.fillText(footerText, 125, 148);
 }
+
 let fileInput = document.getElementById("file");
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 ctx.fillStyle = "#FFFFFF";
 ctx.fillRect(0, 0, canvas.width, canvas.height);
+
 fileInput.addEventListener("change", function (event) {
   if (event.target.files) {
     let file = event.target.files[0];
@@ -51,11 +53,11 @@ fileInput.addEventListener("change", function (event) {
   }
 });
 
-function download() {
+function DownloadPic() {
   var canvas = document.getElementById("canvas");
-  var image = canvas.toDataURL();
-  var aDownloadLink = document.createElement("a");
-  aDownloadLink.download = "canvas_image.png";
-  aDownloadLink.href = image;
-  aDownloadLink.click();
+  var image = canvas.toDataURL().replace("image/png", "image/octet-stream");
+  var DownloadLink = document.createElement("a");
+  DownloadLink.download = "canvas_image.png";
+  DownloadLink.href = image;
+  DownloadLink.click();
 }

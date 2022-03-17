@@ -7,7 +7,7 @@
     <title>Canvas</title>
   </head>
   <body>
-    <h1 class="h1-1">Insert The Image In Canvas</h1>
+    <h1 class="h1-1">Canvas 0.1 Image Donwloader</h1>
     <canvas
       id="canvas"
       style="border: 1px solid black; width: fit-content; height: 50vh"
@@ -28,14 +28,14 @@
           type="button"
           id="header-button"
           value="Add header"
-          onclick="addheader();"
+          onclick="AddHeader();"
         />
       </div>
       <div class="Text-Type">
         <h1>Enter The Text</h1>
         <input
           type="text"
-          name="caption"
+          name="text"
           id="caption"
           placeholder="Enter The Text"
         />
@@ -43,7 +43,7 @@
           type="button"
           id="caption-button"
           value="Add Text"
-          onclick="addtext();"
+          onclick="AddText();"
         />
       </div>
     </div>
@@ -54,7 +54,7 @@
         type="button"
         id="footer-button"
         value="Add Footer"
-        onclick="addfooter();"
+        onclick="AddFooter();"
       />
     </div>
 
@@ -63,7 +63,7 @@
         type="button"
         name="download"
         id="downloadbutton"
-        onclick="download();"
+        onclick="DownloadPic();"
         value="Download"
       />
     </div>
